@@ -20,6 +20,18 @@ https://fr.wiktionary.org/wiki/Utilisateur:Darkdadaah/Listes/Mots_dump/frwiki/20
 
 __Note :__ Cette liste avait elle-même été produite à l'aide du script [get_words_from_dump.pl](https://github.com/Darkdadaah/anagrimes/blob/master/scripts/get_words_from_dump.pl) du projet [Anagrimes](https://github.com/Darkdadaah/anagrimes). Ce script doit pouvoir être utilisé pour produire une liste plus à jour.
 
+## data/passwords.txt
+
+Ce fichier doit contenir la liste des mots de passe les plus utilisés avec leur fréquence d'utilisation. Pour franciser ce fichier, le script _generate_zxcvbn_passwords_frequency_list_from_richelieu.py_ s'appuie sur un fichier issu du projet [Richelieu](https://github.com/tarraschk/richelieu) listant les mots de passes les plus fréquemment utilisés en France. Malheureusement, ce fichier ne fournit qu'une liste de mot de passe classés par fréquence d'utilisation et ne fournis donc pas leur fréquence d'utilisation à proprement dit. Pour émuler celle-ci dans le fichier généré, l'ordre d'apparition dans le fichier source est repris.
+
+Le fichier présent dans le dépôt a été constitué à partir du fichier _data/french_passwords_top20000.txt_ à l'aide de la commande suivante :
+
+```
+./data-scripts/generate_zxcvbn_passwords_frequency_list_from_richelieu.py data/french_passwords_top20000.txt -L 10000 -p
+```
+
+__Note :__ Il est à noter que la librairie _zxcvbn_ ne s'appuie pas à proprement dit sur la fréquence d'utilisation des mots de passes, elle s'en sert simplement pour filtrer les mots de passes trop courts et trop peu utilisés.
+
 ## Copyright
 
 Copyright (c) 2021 Benjamin Renard <brenard@zionetrix.net>
